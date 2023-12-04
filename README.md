@@ -1,4 +1,4 @@
-# CS50W Project 4 - Network
+# Project - Network
 Status: completed and submitted (Pass)
   
 ## Description
