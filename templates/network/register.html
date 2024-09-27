@@ -1,0 +1,37 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link href="{% static 'network/forms.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+{% load i18n %}
+    <div class="register-wrapper info-card">
+        <h2> Register</h2>
+    
+        {% if message %}
+            <div>{{ message }}</div>
+        {% endif %}
+    
+        <form action="{% url 'network:register' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input class="form-control" autofocus type="text" name="username" placeholder=' Username' required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="email" name="email" placeholder=' Email Address' required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder=' Password' required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="confirmation" placeholder=' Confirm Password' required>
+            </div>
+            <input class="btn btn-primary" type="submit" value=' Register'>
+        </form>
+        <!-- <span class="log-register-info"> -->
+             Already have an account? <a href="{% url 'network:login' %}">  Log In here.</a>
+        <!-- </span> -->
+    </div>
+{% endblock %}
